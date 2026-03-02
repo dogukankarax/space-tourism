@@ -1,5 +1,5 @@
 import data from "@/assets/data.json";
-import { cn } from "@/lib/utils";
+import { assetUrl, cn } from "@/lib/utils";
 import type { SpaceData } from "@/types";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
@@ -62,10 +62,10 @@ function Technology() {
             <picture>
               <source
                 media="(min-width: 1280px)"
-                srcSet={technology[selectedTech].img.portrait}
+                srcSet={assetUrl(technology[selectedTech].img.portrait)}
               />
               <img
-                src={technology[selectedTech].img.landscape}
+                src={assetUrl(technology[selectedTech].img.landscape)}
                 alt={technology[selectedTech].name}
               />
             </picture>

@@ -1,5 +1,5 @@
 import data from "@/assets/data.json";
-import { cn } from "@/lib/utils";
+import { assetUrl, cn } from "@/lib/utils";
 import type { SpaceData } from "@/types";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
@@ -24,7 +24,7 @@ function Crew() {
         <div className="desktop:flex-row-reverse desktop:items-end tablet:pt-20 desktop:pt-0 tablet:flex-col-reverse tablet:justify-between desktop:gap-0 flex flex-1 flex-col items-center gap-10 pt-10">
           <div className="size-fluid-crew">
             <img
-              src={crew[selectedCrew].image}
+              src={assetUrl(crew[selectedCrew].image)}
               alt={crew[selectedCrew].name}
               className="tablet:border-0 h-full w-full border-b-2 border-white/25 object-contain object-bottom"
             />

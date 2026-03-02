@@ -1,5 +1,5 @@
 import data from "@/assets/data.json";
-import { cn } from "@/lib/utils";
+import { assetUrl, cn } from "@/lib/utils";
 import type { SpaceData } from "@/types";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
@@ -24,7 +24,7 @@ function Destination() {
         <div className="desktop:flex-row desktop:text-left desktop:justify-between flex flex-1 flex-col items-center gap-10 pt-10 text-center">
           <div className="flex-center tablet:items-start flex-col">
             <img
-              src={destinations[destination].image}
+              src={assetUrl(destinations[destination].image)}
               alt={destinations[destination].name}
               className="size-fluid-planet"
             />
