@@ -1,3 +1,4 @@
+import { assetUrl } from "@/lib/utils";
 import { Link, useLocation } from "@tanstack/react-router";
 import { useState } from "react";
 
@@ -17,7 +18,7 @@ export default function Header() {
     <header className="desktop:top-10 absolute top-0 right-0 left-0 flex h-24 items-center justify-between">
       {/* Logo */}
       <Link to="/" className="tablet:ml-10 ml-6">
-        <img src="/img/shared/logo.svg" alt="Space Tourism Home" />
+        <img src={assetUrl("/img/shared/logo.svg")} alt="Space Tourism Home" />
       </Link>
 
       {/* Hamburger Button - Mobile only */}
@@ -29,7 +30,9 @@ export default function Header() {
         aria-expanded={isMenuOpen}
       >
         <img
-          src={`/img/shared/icon-${isMenuOpen ? "close" : "hamburger"}.svg`}
+          src={assetUrl(
+            `/img/shared/icon-${isMenuOpen ? "close" : "hamburger"}.svg`,
+          )}
           alt={isMenuOpen ? "Close menu" : "Open menu"}
         />
       </button>

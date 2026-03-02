@@ -7,7 +7,11 @@ import "./index.css";
 import { routeTree } from "./routeTree.gen";
 
 // Create a new router instance
-const router = createRouter({ routeTree });
+// basepath ensures TanStack Router links include /space-tourism/ on GitHub Pages
+const router = createRouter({
+  routeTree,
+  basepath: import.meta.env.BASE_URL,
+});
 
 // Register the router instance for type safety
 declare module "@tanstack/react-router" {
