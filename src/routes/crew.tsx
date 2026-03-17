@@ -56,7 +56,7 @@ function Crew() {
               <h2 className="text-fluid-h3 font-bellefair mb-10 text-white">
                 {crew[selectedCrew].name.toUpperCase()}
               </h2>
-              <p className="text-fluid-body font-barlow text-light tablet:px-0 desktop:mb-20 line-clamp-5 min-h-32 max-w-md px-5">
+              <p className="text-fluid-body font-barlow text-light tablet:px-0 desktop:mb-20 mb-10 min-h-36 max-w-md px-5">
                 {crew[selectedCrew].bio}
               </p>
             </div>
