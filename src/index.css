@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+@utility flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@font-face {
+  font-family: "Barlow Condensed";
+  src: url("./fonts/BarlowCondensed-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Barlow";
+  src: url("./fonts/Barlow-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bellefair";
+  src: url("./fonts/Bellefair-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-barlow-condensed: "Barlow Condensed", sans-serif;
+  --font-barlow: "Barlow", sans-serif;
+  --font-bellefair: "Bellefair", serif;
+
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1280px;
+
+  --color-dark: oklch(16.232% 0.02144 275.074);
+  --color-light: oklch(88.26% 0.04874 277.671);
+
+  /* fluid */
+  --text-fluid-explore: clamp(1.5rem, 0.924vw + 1.261rem, 2rem);
+
+  --text-fluid-body: clamp(1rem, 0.231vw + 0.94rem, 1.125rem);
+  --text-fluid-body--line-height: clamp(1.463rem, -0.069vw + 1.518rem, 1.5rem);
+
+  --text-fluid-h1: clamp(6.25rem, 5.774vw + 4.756rem, 9.375rem);
+  --text-fluid-h1--line-height: clamp(9.375rem, 5.196vw + 8.03rem, 12.188rem);
+
+  --text-fluid-h2: clamp(3.125rem, 5.774vw + 1.631rem, 6.25rem);
+  --text-fluid-h2--line-height: clamp(4.688rem, 6.351vw + 3.044rem, 8.125rem);
+
+  --text-fluid-h3: clamp(1.5rem, 3.695vw + 0.544rem, 3.5rem);
+  --text-fluid-h3--line-height: clamp(2.25rem, 4.249vw + 1.15rem, 4.55rem);
+
+  --text-fluid-h5: clamp(1rem, 1.386vw + 0.641rem, 1.75rem);
+  --text-fluid-h5--line-height: clamp(1.3rem, -2.448vw + 3.258rem, 2.625rem);
+  --text-fluid-h5--letter-spacing: clamp(
+    0.125rem,
+    0.346vw + 0.035rem,
+    0.313rem
+  );
+
+  --text-fluid-sh1: clamp(1.5rem, 0.924vw + 1.261rem, 2rem);
+  --text-fluid-sh1--line-height: clamp(2.25rem, 0.647vw + 2.083rem, 2.6rem);
+
+  --text-fluid-sh2: clamp(1rem, 0.924vw + 0.761rem, 1.5rem);
+  --text-fluid-sh2--line-height: clamp(1.5rem, 0.831vw + 1.285rem, 1.95rem);
+
+  --size-fluid-explore: clamp(9.375rem, 6.179rem + 14.2045vw, 17.1875rem);
+  --size-fluid-planet: clamp(9rem, 1.2273rem + 34.5455vw, 28rem);
+  --size-fluid-crew: clamp(20rem, 10rem + 25vw, 40rem);
+}
+
+@layer base {
+  html,
+  body {
+    max-width: 1280px;
+    width: 100%;
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@layer components {
+  .explore-btn {
+    position: relative;
+  }
+
+  .explore-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-color: oklch(100% 0 0 / 0.5);
+    z-index: -1;
+    opacity: 0;
+  }
+
+  .explore-btn:hover::before {
+    animation: pulse-ring 1.5s ease-out infinite;
+  }
+
+  .bg-home,
+  .bg-destination,
+  .bg-crew,
+  .bg-technology {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .bg-home {
+    background-image: url("/img/home/background-home-mobile.jpg");
+  }
+
+  .bg-destination {
+    background-image: url("/img/destination/background-destination-mobile.jpg");
+  }
+
+  .bg-crew {
+    background-image: url("/img/crew/background-crew-mobile.jpg");
+  }
+
+  .bg-technology {
+    background-image: url("/img/technology/background-technology-mobile.jpg");
+  }
+
+  @media (min-width: 768px) {
+    .bg-home {
+      background-image: url("/img/home/background-home-tablet.jpg");
+    }
+
+    .bg-destination {
+      background-image: url("/img/destination/background-destination-tablet.jpg");
+    }
+
+    .bg-crew {
+      background-image: url("/img/crew/background-crew-tablet.jpg");
+    }
+
+    .bg-technology {
+      background-image: url("/img/technology/background-technology-tablet.jpg");
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .bg-home {
+      background-image: url("/img/home/background-home-desktop.jpg");
+    }
+
+    .bg-destination {
+      background-image: url("/img/destination/background-destination-desktop.jpg");
+    }
+
+    .bg-crew {
+      background-image: url("/img/crew/background-crew-desktop.jpg");
+    }
+
+    .bg-technology {
+      background-image: url("/img/technology/background-technology-desktop.jpg");
+    }
+  }
+}
